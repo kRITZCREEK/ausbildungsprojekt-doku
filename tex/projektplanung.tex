@@ -1,16 +1,36 @@
 \section{Projektplanung}
 \subsection{IST-Analyse}
-\subsection{SOLL-Konzept}
-\subsection{Zielsetzung}
-\subsection{Infrastrukturelle Rahmenbedingungen}
-\subsubsection{Entwicklungsumgebung}
+Auf die aktuelle Lage wurde bereits ausreichend in der Beschreibung der Ausgangssituation eingegangen. Darum sollen hier nur noch einmal die wichtigsten Punkte aufgelistet werden.
 \begin{itemize}
-\item OS:Linux
-\item IDE:Emacs
-\item Browser:Chrome
-\item Backend:ghc-mod, stylish-haskell, tern
+\item Es gibt eine vorhandene Lösung für das Zusammentragen von Themen im Voraus
+\item Fehlende Möglichkeit während des Open Space's Änderungen am Zeitplan vorzunehmen
+\item Fehlende Möglichkeit diese Änderungen in Echtzeit an die Teilnehmer weiter zu reichen
+\item Fehlende Möglichkeit für das Festhalten der durchgeführten Diskussionen, Workshops, etc\ldots
 \end{itemize}
+\subsection{SOLL-Konzept}
+Gewünscht ist eine Möglichkeit die zuvor gesammelten Themenvorschläge auf Räume und Zeitslots zu verteilen. Weiterhin soll es möglich sein neue Themen hinzuzufügen. Der Zeitplan muss sich in Echtzeit anpassen lassen und die vorgenommenen Änderungen sollen alle Teilnehmer des Open Spaces erreichen. Als zusätzliche Anforderung soll die gewünschte Applikation in einem funktionalen Stil entwickelt werden um spätere Änderungswünsche leichter umsetzen zu können.
+\subsection{Zielsetzung}
+Primärziel ist es eine Webapplikation zur Unterstützung von Open Spaces zu entwickeln. Weitere Ziele sind eine mobile Lösung um den Zeitplan zu betrachten, sowie die Tauglichkeit von funktionalen Techniken für die Webentwicklung zu evaluieren.
+\subsection{Infrastrukturelle Rahmenbedingungen}
+Für die Applikation wird ein Server im Firmeninternen Netz zur Verfügung gestellt. Die Administration dieses Servers geschieht über \texttt{ssh} aus dem firmeninternen Netz. Der Server wird zeitlich begrenzt für die Dauer des Open Spaces bereitgestellt.
+\subsubsection{Entwicklungsumgebung}
+Entwickelt wurde auf einem Ubuntu 14.04 Linux System. Als Entwicklungsumgebung diente Emacs mit Plugins für den jeweiligen Einsatzfall. Die Applikation wurde mit Chrome und Firefox auf dem angesprochenen Linux System getestet. Während der Entwicklung lief der Server sowie die Datenbank lokal.
+\subsubsection*{Verwendetes Tooling am Backend:}
+\begin{itemize}
+\item \gls{ghc} in Version \texttt{7.8.3}
+\item \gls{cabal} in Version \texttt{1.20.0.0}
+\item \gls{postgresql} in Version \texttt{9.3.6}
+\end{itemize}
+
+\subsubsection*{Verwendetes Tooling am Frontend:}
+\begin{itemize}
+\item \gls{psc} in Version \texttt{0.6.8}
+\item \gls{react-tools} in Version \texttt{0.12.2}
+\item \gls{pulp} in Version \texttt{2.0.2}
+\item \gls{bower} in Vesion \texttt{1.3.5}
+\end{itemize}
+Es wurde außerdem ein Buildserver in einer VM aufgesetzt, der die spätere Laufzeitumgebung für den Server nachbildet. Auf diesem Buildserver gebaute Programme können einfach auf das Produktivsystem kopiert und dort benutzt werden.
 \subsubsection{Laufzeitumgebung}
-Das entwickelte Backend soll abschließend auf einem Debian Server laufen. Der Client soll sowohl im Browser auf Desktop Clients als auch in den Browsern der mobilen Clients.
+Das entwickelte Backend soll abschließend auf einem Debian Server laufen. Die Webapplikation (das Frontend) soll sowohl im Browser auf Desktop Clients, als auch in den Browsern der mobilen Clients ausgeführt werden.
 \subsection{Terminplanung}
 Das Projekt ist zwischen dem 25.01.2015 und dem 17.04.2015 zu realisieren und umfasst maximal 70 Arbeitsstunden.

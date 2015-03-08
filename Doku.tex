@@ -2,18 +2,23 @@
 
 \usepackage{mystyle}
 
+\loadglsentries[main]{tex/glossar}
 \makeglossaries%Glossar
+\makeindex
+
 \input{tex/title}
 \begin{document}
 \maketitle
-%\input{./glossar.tex}
+\clearpage
 %\input{./signature.tex}
+\pagenumbering{roman}
 \input{tex/antrag}
 \include{tex/erklaerungen}
 \tableofcontents
 \listoffigures
 \listoftables
-\newpage
+\clearpage
+\pagenumbering{arabic}
 \input{tex/ausgangssituation}
 \input{tex/projektplanung}
 \input{tex/realisierung}
@@ -26,9 +31,8 @@
 \addcontentsline{toc}{section}{Literaturverzeichnis}
 \input{./tex/bibliography.tex}
 
-\section{Glossar}
-%Glossar ausgeben
-%\printglossary
+%\section{Glossar}
+\printglossary[title=Glossar]%Glossar ausgeben
 \section{Anhang}
 \subsection{A}
 \subsection{B}
