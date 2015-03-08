@@ -37,7 +37,8 @@ kann daher für die Mobile Version des Clients wiederverwendet werden.
 \caption{Unidirectional Dataflow}
 \end{figure}
 
-Die Engine ``pusht'' den Applikationszustand in das View-Layer welches aus diesem ein User Interface rendert.
+\noindent Die Engine ``pusht'' den Applikationszustand in das
+View-Layer welches aus diesem ein User Interface rendert.
 Die Interaktionen des Benutzers mit dem View-Layer erzeugen dann
 wiederum Events, die als Streams an die Engine zurückfließen, wo sie
 interpretiert und verarbeitet werden. Das Interpretieren der Events
@@ -60,8 +61,12 @@ ausgegeben. Dieser Stream abstrahiert nun die Mechanik des Drag and
 Drop Vorganges und erlaubt es die tatsächlichen Intentionen des
 Nutzers zu modellieren und angemessen zu reagieren.
 \subsection{Test \& Abnahme}
-Der Client wurde auf vielen verschiedenen Endgeräten getestet. Hierbei
-fielen immer wieder Kleinigkeiten auf die sich unterschieden. Das
+Der Client wurde auf verschiedenen Endgeräten getestet. Hierbei fielen
+immer wieder Kleinigkeiten auf die sich unterschieden. Das fixen
+dieser kleinen Bugs gestaltete sich als zu zeitaufwendig und so wurden
+die unterstützten Browser auf Firefox und Chrome festgelegt.
+Die Mobile Version wurde sowohl auf Android als auch auf iOS ausgiebig
+getestet und funktioniert ohne Einschränkungen auf beiden Systemen.
 \subsection{Projektablauf}
 
 %%% Local Variables:
