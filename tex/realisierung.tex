@@ -53,10 +53,9 @@ Themas auf das Grid beschreibt.
     lookup "dragEndTopic" `merge` lookup "dragEndGridTopic"
     return $ action t
 \end{lstlisting}
-
-\noindent Hier werden die Eventstreams für den Beginn eines Drag Vorgangs sowie
-das Ziehen über einen Zeitslot mit dem beenden des Drag Vorgangs
-kombiniert und in einem resultierenden Stream \texttt{dragTopic}
+\noindent Hier werden die Eventstreams für den Beginn eines
+Drag Vorgangs sowie das Ziehen über einen Zeitslot mit dem beenden des
+Drag Vorgangs kombiniert und in einem resultierenden Stream \texttt{dragTopic}
 ausgegeben. Dieser Stream abstrahiert nun die Mechanik des Drag and
 Drop Vorganges und erlaubt es die tatsächlichen Intentionen des
 Nutzers zu modellieren und angemessen auf diese zu reagieren.
