@@ -1,22 +1,34 @@
 \section{Ausblick}
 Die Applikation ist in ihrem jetzigen Stand noch an vielen Stellen
-erweiterbar und es gibt einige Ideen für die Weiterentwicklung. Der
-native Support für Mobile Geräte ist noch nicht gegeben. Eine
+erweiterbar und es gibt einige Ideen für die Weiterentwicklung.
+
+\subsection{Native Mobile}
+Der native Support für Mobile Geräte ist noch nicht gegeben. Eine
 interessante Entwicklung in dieser Richtung ist die Ankündung von
-\textbf{React Native}.
-\footnote{\url{https://code.facebook.com/videos/786462671439502/react-js-conf-2015-keynote-introducing-react-native-/}}
+\textbf{React Native}\footnote{\url{http://goo.gl/LXvXLw}}.
 Hier könnten sich neue Wege eröffnen native Apps als Webapplikationen
-zu entwicklen. Das entstandene Projekt kann als
-Spielwiese/Lernmaterial dienen um funktionale Konzepte in einer
-realistischen Umgebung auszuprobieren. PureScript ist wahrscheinlich
-zu radikal um eine breite Nutzerbasis anzusprechen. Typsicherheit und
-funktionale Konzepte im Browser setzen sich jedoch immer mehr durch.
-So wird beispielsweise Microsoft's TypeScript die Sprache sein in der
-das aktuell wichtigste MVC Framework AngularJS entwickelt wird.
-\footnote{\url{http://t3n.de/news/angularjs-20-typescript-597814/}}
-Facebooks ``Typed Javascript'' ist \textbf{Flow} ein JavaScript
-Compiler der JavaScript um ein Typsystem erweitert. Um
-diesen Entwicklungen frühzeitig, progressiv entgegen zu treten ist die
+zu entwicklen.
+
+\subsection{Eventstore als Persistenzlayer}
+Die Anwendung hält sich streng an das \gls{Event Sourcing} Pattern. Es
+modeliert die Kommunikation zwischen den Systembestandteilen als Event
+Streams. Für diese Art von Eventbasierter Kommunikation wurde eine spezielle
+Datenbank\footnote{\url{https://geteventstore.com/}} entwickelt die
+das Observieren dieser Eventstreams unterstützt. Dies könnte
+Performance Steigerungen und neue Möglichkeiten für Verbesserung der Fehlertoleranz
+der Applikation bringen.
+
+\subsection{Nutzung als Referenzprojekt}
+Das entstandene Projekt kann als Spielwiese/Lernmaterial dienen um
+funktionale Konzepte in einer realistischen Umgebung auszuprobieren.
+PureScript ist wahrscheinlich zu radikal um eine breite Nutzerbasis
+anzusprechen. Typsicherheit und funktionale Konzepte im Browser setzen
+sich jedoch immer mehr durch. So wird beispielsweise Microsoft's
+TypeScript die Sprache sein in der das aktuell wichtigste MVC
+Framework AngularJS entwickelt wird\footnote{\url{http://t3n.de/news/angularjs-20-typescript-597814/}}.
+Facebooks ``typed Javascript'' ist \textbf{Flow} ein JavaScript
+Compiler der JavaScript um ein Typsystem erweitert. Um diesen
+Entwicklungen frühzeitig, progressiv entgegen zu treten ist die
 Beschäftigung mit PureScript eine wertvolle Erfahrung für jeden
 Frontend-Entwickler.
 
