@@ -6,7 +6,7 @@ die wichtigsten Punkte aufgelistet werden.
 \begin{itemize}
 \item Es gibt eine vorhandene Lösung für das Zusammentragen von Themen
   im Voraus
-\item Fehlende Möglichkeit während des Open Space's Änderungen am
+\item Fehlende Möglichkeit während des Open Spaces Änderungen am
   Zeitplan vorzunehmen
 \item Fehlende Möglichkeit diese Änderungen in Echtzeit an die
   Teilnehmer weiter zu reichen
@@ -20,23 +20,25 @@ neue Themen hinzuzufügen. Der Zeitplan muss sich in Echtzeit anpassen
 lassen und die vorgenommenen Änderungen sollen alle Teilnehmer des
 Open Spaces erreichen. Als zusätzliche Anforderung soll die gewünschte
 Applikation in einem funktionalen Stil entwickelt werden um spätere
-Änderungswünsche leichter umsetzen zu können.
+Änderungswünsche leichter umsetzen zu können. Dieser Effekt soll sich
+durch das Vermeiden von Seiteneffekten, Modularisierung und das
+Programmieren mit Unveränderlichen Variablen einstellen.
 \subsection{Zielsetzung}
 Primärziel ist es eine Webapplikation zur Unterstützung von Open
 Spaces zu entwickeln. Weitere Ziele sind eine mobile Lösung um den
-Zeitplan zu betrachten, sowie die Tauglichkeit von funktionalen
+Zeitplan zu betrachten sowie die Tauglichkeit von funktionalen
 Techniken für die Webentwicklung zu evaluieren.
 \subsection{Infrastrukturelle Rahmenbedingungen}
 Für die Applikation wird ein Server im firmeninternen Netz zur
 Verfügung gestellt. Die Administration dieses Servers geschieht über
-\texttt{ssh} aus dem firmeninternen Netz. Der Server wird zeitlich
+\gls{ssh} aus dem firmeninternen Netz. Der Server wird zeitlich
 begrenzt für die Dauer des Open Spaces bereitgestellt.
 \subsubsection{Entwicklungsumgebung}
 Entwickelt wurde auf einem Ubuntu 14.04 Linux System. Als
 Entwicklungsumgebung diente Emacs mit Plugins für den jeweiligen
 Einsatzfall. Die Applikation wurde mit Chrome und Firefox auf dem
-angesprochenen Linux System getestet. Während der Entwicklung lief der
-Server sowie die Datenbank lokal.
+angesprochenen Linux System getestet. Während der Entwicklung wurden
+der Server sowie die Datenbank lokal betrieben.
 \subsubsection*{Verwendetes Tooling am Backend:}
 \begin{itemize}
 \item \gls{ghc} in Version \texttt{7.8.3}
