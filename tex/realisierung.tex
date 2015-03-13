@@ -15,7 +15,7 @@ auf Feedback einzugehen und Dinge ausprobieren zu können.
 Bei der Analyse der Anforderungen fallen die Realtime Aspekte auf. Sie
 sollen mithilfe von Websocketkommunikation und Push-Based-Updates vom
 Server umgesetzt werden. Für einen modernen Look und ein intuitives
-Verhalten auf mobilen Geräten soll die Steuerung Drag and Drop unterstützen.
+Verhalten soll die Steuerung Drag and Drop unterstützen.
 \subsubsection{Architektur}
 Zu Beginn wurde ein Plan für das grobe Zusammenspiel der beteiligten
 Komponenten angefertigt. Hiermit wurde die Arbeit in mehrere Schritte
@@ -46,11 +46,11 @@ Die Implementierung des Browser-Frontends verwendet Technologien, die
 dem \gls{Reactive Programming} Pattern zuzuweisen sind. \gls{React} als
 UI-Framework von Facebook ist ein stark durch funktionale Ideen und
 \gls{Reactive Programming} inspiriertes Framework. Das Browser
-Frontend ist modular aufgebaut, wobei das Modulsystem von PureScript
-behilflich ist. Ein Modul kapselt dabei die Definitionen innerhalb
+Frontend ist modular aufgebaut, wobei das Modulsystem von
+\gls{PureScript} behilflich ist. Ein Modul kapselt dabei die Definitionen innerhalb
 einer Datei und kann von anderen Modulen importiert werden. Die
 Kommunikation mittels WebSockets und das Verwalten des
-Applikationszustandes geschieht in der in PureScript implementierten
+Applikationszustandes geschieht in der in \gls{PureScript} implementierten
 Engine. Dieser Teil des Programmes nimmt im Unidirectional-Dataflow
 Modell die Rolle der ``Stores'' ein und erlaubt es das View-Layer
 beliebig auszutauschen. Die Engine ist für alle Clients gleich und
