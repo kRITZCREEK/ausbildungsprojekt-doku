@@ -16,7 +16,7 @@ Bei der Analyse der Anforderungen fallen die Realtime Aspekte auf. Sie
 sollen mithilfe von Websocketkommunikation und Push-Based-Updates vom
 Server umgesetzt werden. Für einen modernen Look und ein intuitives
 Verhalten soll die Steuerung Drag and Drop unterstützen.
-\subsubsection{Architektur}
+\subsubsection*{Architektur}
 Zu Beginn wurde ein Plan für das grobe Zusammenspiel der beteiligten
 Komponenten angefertigt. Hiermit wurde die Arbeit in mehrere Schritte
 und leicht abzugrenzende Komponenten unterteilt. Das Projekt ließ sich
@@ -45,16 +45,34 @@ Datenmodell mittels Push-Benachrichtigungen an die Clients weiterzugeben.
 Die Implementierung des Browser-Frontends verwendet Technologien, die
 dem \gls{Reactive Programming} Pattern zuzuweisen sind. \gls{React} als
 UI-Framework von Facebook ist ein stark durch funktionale Ideen und
-\gls{Reactive Programming} inspiriertes Framework. Das Browser
-Frontend ist modular aufgebaut, wobei das Modulsystem von
-\gls{PureScript} behilflich ist. Ein Modul kapselt dabei die Definitionen innerhalb
-einer Datei und kann von anderen Modulen importiert werden. Die
-Kommunikation mittels WebSockets und das Verwalten des
-Applikationszustandes geschieht in der in \gls{PureScript} implementierten
-Engine. Dieser Teil des Programmes nimmt im Unidirectional-Dataflow
-Modell die Rolle der ``Stores'' ein und erlaubt es das View-Layer
-beliebig auszutauschen. Die Engine ist für alle Clients gleich und
-kann daher für die mobile Version des Clients wiederverwendet werden.
+\gls{Reactive Programming} inspiriertes Framework. Dies bedeutet
+konkret, dass die elementaren Objekte der Programmierung keine
+skalaren Werte wie Numbers oder Strings sondern Streams von
+solchen sind. Dies erlaubt es, Werte die sich über die Zeit verändern,
+in einem deklarativen Stil zu beschreiben und angemesssene
+Abstraktionen für Echtzeitsysteme zu finden. \gls{Reactive
+  Programming} ermöglicht außerdem besonders kurze Antwortzeiten auf
+Nutzerinteraktion, was zu einem besseren Nutzererlebnis führt. Die
+Applikation leidet nicht unter Ladezeiten und reagiert schnell und
+zuverlässig.
+
+Das Browser Frontend ist modular aufgebaut, wobei das Modulsystem von
+\gls{PureScript} behilflich ist. Ein Modul kapselt dabei die
+Definitionen innerhalb einer Datei und kann von anderen Modulen
+importiert werden. Dies erlaubt es das Dateisystem zu nutzen um Teile
+des Systems inhaltlich voneinander abzugrenzen. Das Prinzip von der
+starken Kohäsion und losen Kopplung ist ein wichtiges Ziel bei der
+Architektur und dem Design von Software und lässt sich mithilfe des
+Modulsystems von PureScript leichter umsetzen.
+
+Die Kommunikation mittels WebSockets und das Verwalten des
+Applikationszustandes geschieht in der in \gls{PureScript}
+implementierten Engine. Dieser Teil des Programmes nimmt im
+Unidirectional-Dataflow Modell die Rolle der ``Stores'' ein und
+erlaubt es das View-Layer beliebig auszutauschen. Die Engine ist für
+alle Clients gleich und kann daher für die mobile Version des Clients
+wiederverwendet werden.
+
 \begin{figure}[h]
 \includegraphics[scale=0.3]{img/Unidirectional.png}
 \caption{Unidirectional Dataflow}
@@ -85,11 +103,19 @@ Nutzers zu modellieren, um angemessen auf diese reagieren zu können.
 \subsubsection{Backend Server}
 Für die Entwicklung des Backend Servers wurde Haskell als
 Programmiersprache ausgewählt. Haskell ist eine rein funktionale
-Sprache und bringt dadurch die schon angesprochenen Vorteil im Bezug
+Sprache und bringt dadurch die schon angesprochenen Vorteile im Bezug
 auf Modularität und Skalierbarkeit mit sich. Die Implementierung
 verwendet das \gls{Yesod Framework}, welches bereits Funktion für das
 Ausliefern von HTML, CSS und JavaScript bereitstellt. Weiterhin erleichtert
-das \texttt{Yesod.WebSockets} Modul das Programmieren der WebSocket Endpunkte.
+das \texttt{Yesod.WebSockets} Modul das Programmieren der WebSocket
+Endpunkte. Der Applikationszustand wird am Backend genau so wie auch
+am Frontend laufend durch Events von Clients verändert. Anstatt jedoch
+die Änderungen an die anderen Clients zu verteilen, werden die Events
+per ``Broadcast'' Mechanismus verteilt. Jeder Client kann dann seinen
+Applikationszustand selbst fortschreiten. Dies hat den Vorteil, dass
+Clients, die für eine gewisse Zeit vom Netz getrennt waren, alle
+``verpassten'' Events nachholen können und nicht ganz von vorne
+beginnen müssen.
 \subsection{Test \& Abnahme}
 Der Client wurde auf verschiedenen Endgeräten getestet. Hierbei fielen
 immer wieder Kleinigkeiten auf, die sich unterschieden. Das Beheben
@@ -123,6 +149,23 @@ $\Sigma$ & Summe          & 70h & 70h & $\pm0$ \\
 \end{tabular}
 \caption{Vergleich Aufwand -- Soll/Ist}
 \end{table}
+
+\noindent Die Zeitersparnis von 5 Stunden bei der Entwicklung des
+Backends rührt daher, das durch die syntaktische und semantische Nähe
+von PureScript und Haskell einiger Code mit wenigen Änderungen vom
+Frontend übernommen werden konnte. Der Code der übernommen werden
+konnte musste jedoch erst am Frontend entstehen, weshalb hier über das
+erwartete Zeitbudget hinaus entwickelt werden musste.
+
+\noindent Dass für die Mobile Webapp 3 Stunden mehr als ursprünglich
+geplant aufgewendet werden musste, lag an den Inkompatibilitäten der
+mobilen Browser untereinander. Hier mussten Änderungen gemacht und
+mühsam auf vielen Geräten getestet werden.
+
+Die Zeitplanung hat sich erfreulicherweise jedoch als akkurat
+herausgestellt und so konnte das Projekt im gegebenen Zeitrahmen
+realisiert werden.
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../Doku"

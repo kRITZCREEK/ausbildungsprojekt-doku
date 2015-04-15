@@ -17,7 +17,7 @@
 \usepackage{bigstrut}
 \usepackage{hyperref}
 \usepackage{booktabs}
-
+\usepackage{eurosym}
 %%Source Code
 \usepackage{listings}
 
@@ -76,7 +76,7 @@
 sensitive=false,
 morecomment=[l]{//},
 morecomment=[s]{/*}{*/},
-morestring=[b]",
+morestring=[b],
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -87,6 +87,9 @@ morestring=[b]",
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \onehalfspacing%Anderthalb Zeilenabstand
+
+%% IHK Ränder
+\usepackage[left=2.5cm,right=1.5cm]{geometry}
 
 \usepackage[toc,page]{appendix}%Anhang
 \addto\captionsngerman{\let\appendixtocname\appendixname%
